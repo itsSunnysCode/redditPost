@@ -2,7 +2,7 @@
 const initState = {
   posts : null,
   isLoadingPosts : true,
-  image_url : '',
+  
 }
 
 

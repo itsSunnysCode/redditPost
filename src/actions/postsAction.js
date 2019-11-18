@@ -1,7 +1,7 @@
 export const getPost = (subreddit) => {
                 
         return(dispatch) => {
-        
+            
             dispatch({type: "GET_POSTS"})
             fetch(`https://www.reddit.com/r/${subreddit}.json`)
                 .then((res) => res.json())
@@ -21,3 +21,33 @@ export const toggleModal = (payload = {}) => {
         })
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

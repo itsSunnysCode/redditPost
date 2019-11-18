@@ -24,8 +24,8 @@ class Navbar extends Component {
     
     handleRouteChange = (path) => {
         const {history, getPost} = this.props;
-        history.push(`/${path}`);
-        getPost(path);
+                history.push(`/${path}`);
+                getPost(path);
     }
     
     
@@ -34,13 +34,13 @@ class Navbar extends Component {
         return (
             <div>
                 <ul>
-                            {subreddits && subreddits.map(subreddit => (
+                        {subreddits && subreddits.map(subreddit => (
                             <li key={subreddit}>         
                                 <a onClick={()=>this.handleRouteChange(subreddit)}>
                                     {subreddit}
                                 </a>
                             </li>
-                        ))}
+                    ))}
                 </ul> 
             </div>
         )

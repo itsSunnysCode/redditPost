@@ -26,14 +26,19 @@ class Layout extends Component {
         
             finalData = posts && posts.filter(
                 (post) => post.data.url !== "" 
-                && post.data.thumbnail !== "" 
+                && post.data.thumbnail  !== "" 
                 && !post.data.is_self 
-                && post.data.thumbnail!== "default");
-            
+                && post.data.thumbnail  !== "default"
+                && post.data.thumbnail  !== "image"
+                && post.data.post_hint  === "image"
+            );
+           
             return (
 
                 <div>
-                        { isLoadingPosts && (
+                        
+                        { 
+                            isLoadingPosts && (
                             <div className="center_data">
                                 <img 
                                 src={require("./../GIF/loadingGIF.gif")} 
@@ -42,9 +47,11 @@ class Layout extends Component {
                                 width="500px" 
                                 />
                             </div>
-                        )}
+                        )
+                    }
                     
-                        { (!isLoadingPosts && posts && posts.length > 0) ? (
+                        { 
+                            (!isLoadingPosts && posts && posts.length > 0) ? (
                             <div>
                                 { 
                                     (finalData.length > 0) ? (
@@ -63,24 +70,26 @@ class Layout extends Component {
                             <div>
                                 {!isLoadingPosts && (<h1 className="center_data">No data Found</h1>)}
                             </div>
-                            )
-                        }
+                        )
+                    }
 
-                        { finalData && finalData.map((item) => (
+                        { 
+                            finalData && finalData.map((item) => (
                                 <Post
                                 data={item.data}
                                 key= {item.data.id}
                                 toggleModal={toggleModal}
                                 />
-                        )) 
-                        }
+                            )
+                        ) 
+                    }
 
                         {isShowModal && (
                     
                         <Modal toggleModal={toggleModal} src={url}  />                   
                     
                         )
-                        }
+                    }
                 </div> 
         )
     }
